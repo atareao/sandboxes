@@ -17,8 +17,6 @@ RUN apt-get update -y && \
     useradd -ms /bin/bash lorenzo && \
     echo "lorenzo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/10-lorenzo
 
-
-
 USER lorenzo
 WORKDIR /home/lorenzo
 
