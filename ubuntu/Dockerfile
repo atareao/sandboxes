@@ -5,13 +5,9 @@ RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         sudo \
         ca-certificates \
-        build-essential \
-        automake \
-        cmake \
         vim \
         curl \
         wget \
-        cargo \
         && \
     rm -rf /var/lib/apt/lists/* && \
     useradd -ms /bin/bash lorenzo && \
@@ -20,7 +16,11 @@ RUN apt-get update -y && \
 USER lorenzo
 WORKDIR /home/lorenzo
 
-RUN cargo install starship --locked
+RUN mkdir -p ~/.cargo/bin && \
+    wget https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-gnu.tar.gz && \
+    tar xvzf starship-x86_64-unknown-linux-gnu.tar.gz && \
+    rm starship-x86_64-unknown-linux-gnu.tar.gz && \
+    mv starship ~/.cargo/bin/
 
 RUN mkdir -p ~/.config && \
     touch ~/.config/starship.toml && \
