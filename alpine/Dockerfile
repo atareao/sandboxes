@@ -9,7 +9,7 @@ RUN apk update && \
             curl \
             wget \
             && \
-    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /var/cache/apt/* && \
     addgroup -S lorenzo && \
     adduser -Ss /bin/bash lorenzo -G lorenzo && \
     echo "lorenzo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/10-lorenzo
@@ -22,7 +22,6 @@ RUN mkdir -p ~/.cargo/bin && \
     tar xvzf starship-x86_64-unknown-linux-musl.tar.gz && \
     rm starship-x86_64-unknown-linux-musl.tar.gz && \
     mv starship ~/.cargo/bin/
-
 
 RUN mkdir -p ~/.config && \
     touch ~/.config/starship.toml && \
