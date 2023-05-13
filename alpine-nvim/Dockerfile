@@ -10,6 +10,13 @@ RUN apk update && \
             wget \
             git \
             neovim \
+            gcc \
+            g++ \
+            cargo \
+            make \
+            luajit \
+            musl-dev \
+            python3 \
             && \
     rm -rf /var/cache/apt/* && \
     addgroup -S nosotros -g 10001 && \
