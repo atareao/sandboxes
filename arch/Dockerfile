@@ -9,6 +9,7 @@ RUN pacman -Syyu --noconfirm && \
             curl \
             wget \
             && \
+    pacman -Scc --noconfirm && \
     rm -rf /var/cache/apt/*
 RUN groupadd -g 10001 nosotros && \
     useradd -ms /bin/bash --uid 10001 --gid 10001 yo && \
