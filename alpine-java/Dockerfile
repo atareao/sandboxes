@@ -41,4 +41,7 @@ RUN mkdir -p ~/.config && \
     echo 'export PATH=~/.cargo/bin:$PATH' >> ~/.bashrc && \
     echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
+RUN git clone https://github.com/LazyVim/starter ~/.config/nvim && \
+    rm -rf ~/.config/nvim/.gi
+
 CMD ["/bin/bash"]
