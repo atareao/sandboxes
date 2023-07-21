@@ -1,4 +1,4 @@
 build:
-    podman build -t atareao/sandbox:arch .
+    docker build -t atareao/sandbox:arch .
 run:
-    podman run -it --rm atareao/sandbox:arch
+    docker run -it --rm atareao/sandbox:arch
