@@ -7,6 +7,7 @@ RUN apt-get update -y && \
         ca-certificates \
         vim \
         curl \
+        build-essential \
         wget \
         && \
     rm -rf /var/lib/apt/lists/* && \
