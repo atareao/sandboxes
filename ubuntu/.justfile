@@ -1,3 +1,6 @@
+default:
+    @just --list
+
 build:
     docker build -t atareao/sandbox:ubuntu .
 
