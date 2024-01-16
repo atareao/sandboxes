@@ -9,6 +9,8 @@ RUN apt-get update -y && \
         curl \
         build-essential \
         wget \
+        bash-completion \
+        software-properties-common \
         python3 \
         python3-pip \
         && \
