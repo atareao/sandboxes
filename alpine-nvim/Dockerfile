@@ -18,7 +18,7 @@ RUN apk update && \
             musl-dev \
             python3 \
             && \
-    rm -rf /var/cache/apt/* && \
+    rm -rf /var/cache/apk/* && \
     addgroup -S nosotros -g 10001 && \
     adduser -Ss /bin/bash yo -G nosotros -u 10001 && \
     echo "yo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/10-yo
