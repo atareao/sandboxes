@@ -28,6 +28,7 @@ WORKDIR /home/yo
 
 RUN curl https://sh.rustup.rs -sSf -o install.sh && \
     /bin/bash install.sh -y
+    rm install.sh
 
 RUN mkdir -p ~/.cargo/bin && \
     wget https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-musl.tar.gz && \
