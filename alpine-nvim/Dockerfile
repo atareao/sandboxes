@@ -14,6 +14,7 @@ RUN apk update && \
             g++ \
             cargo \
             make \
+	    cmake \
             luajit \
             musl-dev \
             python3 \
@@ -31,15 +32,13 @@ RUN curl https://sh.rustup.rs -sSf -o install.sh && \
     rm install.sh
 
 RUN mkdir -p ~/.cargo/bin && \
-    wget https://github.com/starship/starship/releases/download/v1.14.2/starship-x86_64-unknown-linux-musl.tar.gz && \
-    tar xvzf starship-x86_64-unknown-linux-musl.tar.gz && \
-    rm starship-x86_64-unknown-linux-musl.tar.gz && \
-    mv starship ~/.cargo/bin/
+    cargo install starship
 
 RUN mkdir -p ~/.config && \
     touch ~/.config/starship.toml && \
     echo 'export PATH=~/.cargo/bin:$PATH' >> ~/.bashrc && \
-    /home/yo/.cargo/bin/starship preset pastel-powerline -o ~/.config/starship.toml
+    /home/yo/.cargo/bin/starship preset pastel-powerline -o ~/.config/starship.toml && \
+    echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 
 CMD ["/bin/bash"]
